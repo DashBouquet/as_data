@@ -4,7 +4,7 @@
       "id": "act_391148067715145",
       "account_id": "391148067715145",
       "account_status": 1,
-      "age": 798.06084490741,
+      "age": 798.84590277778,
       "amount_spent": "7974612",
       "attribution_spec": [
         {
@@ -7143,7 +7143,7 @@
       "id": "act_2225909257631918",
       "account_id": "2225909257631918",
       "account_status": 1,
-      "age": 219.15726851852,
+      "age": 219.94232638889,
       "amount_spent": "179040",
       "attribution_spec": [
         {
@@ -14281,8 +14281,8 @@
       "id": "act_161227988137483",
       "account_id": "161227988137483",
       "account_status": 1,
-      "age": 148.18134259259,
-      "amount_spent": "15755564",
+      "age": 148.96640046296,
+      "amount_spent": "15846494",
       "attribution_spec": [
         {
           "event_type": "CLICK_THROUGH",
@@ -14293,7 +14293,7 @@
           "window_days": 1
         }
       ],
-      "balance": "68338",
+      "balance": "54464",
       "business": {
         "id": "248980942512341",
         "name": "Dashapps OU"
