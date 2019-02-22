@@ -5,37 +5,50 @@ const { ADACCOUNT_FIELDS, CAMPAIGN_FIELDS, AD_FIELDS, ADSET_FIELDS, INSIGHTS_FIE
 
 // TODO: add time_range for insights
 
-async function getAdaccounts(FB) {
-  return await FB.api_promise('me/adaccounts', { fields: ADACCOUNT_FIELDS })
+/**
+ * 
+ * 1. Fo use insights parameters set them to options
+ *    example: options = { insights: { time_range: { 'since': '2019-01-22', 'until': '2019-02-05' } } }
+ * 
+ */
+
+async function getAdaccounts(FB, options) {
+  const ids = await FB.api_promise('me/adaccounts', { fields: 'id' })
+    .then(({data}) => data)
+
+  return await Promise.all(ids.map(async i => ({
+    adaccount: await FB.api_promise(`${i.id}`, { fields: ADACCOUNT_FIELDS }),
+    insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS, ...pathOr({}, ['insights'], options) }),
+  })))
 }
 
-async function getCampaigns(FB) {
+async function getCampaigns(FB, options) {
   const campaignIds = await FB.api_promise('me/adaccounts', { fields: 'campaigns{id}'})
     .then(({data}) => data.map(pathOr([], ['campaigns', 'data'])))
     .then(flatten)
   return await Promise.all(campaignIds.map(async i => ({
       campaign: await FB.api_promise(`${i.id}`, { fields: CAMPAIGN_FIELDS }),
-      insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS }),
+      insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS, ...pathOr({}, ['insights'], options) }),
     })))
 }
 
-async function getAds(FB) {
+async function getAds(FB, options) {
   const adsIds = await FB.api_promise('me/adaccounts', { fields: 'ads{id}' })
     .then(({data}) => data.map(pathOr([], ['ads', 'data'])))
     .then(flatten)
   return await Promise.all(adsIds.map(async i => ({ 
     ad: await FB.api_promise(i.id, { fields: AD_FIELDS }),
-    insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS })
+    insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS, ...pathOr({}, ['insights'], options) })
   })))
 }
 
-async function getAdsets(FB) {
+async function getAdsets(FB, options) {
   const adsetsIds = await FB.api_promise('me/adaccounts', { fields: 'adsets{id}' })
     .then(({data}) => data.map(pathOr([], ['adsets', 'data'])))
     .then(flatten)
   return await Promise.all(adsetsIds.map(async i => ({
     adset: await FB.api_promise(i.id, { fields: ADSET_FIELDS }),
-    insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS })
+    insights: await FB.api_promise(`${i.id}/insights`, { fields: ADS_INSIGHTS_FIELDS, ...pathOr({}, ['insights'], options) })
   })))
 }
 
