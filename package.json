@@ -10,12 +10,13 @@
     "fb": "^2.0.0",
     "json2csv": "^4.3.3",
     "jsonwebtoken": "^8.4.0",
+    "log4js": "^4.0.2",
     "money": "^0.2.0",
     "node-fetch": "^2.3.0",
     "ramda": "^0.26.1"
   },
   "scripts": {
-    "start": "GOOGLE_APPLICATION_CREDENTIALS=\"./My Project 46435-cb6b70b79bc7.json\" node reports.js",
-    "rates": "GOOGLE_APPLICATION_CREDENTIALS=\"./My Project 46435-cb6b70b79bc7.json\" node rates.js"
+    "start": "GOOGLE_APPLICATION_CREDENTIALS=\"./My Project 46435-cb6b70b79bc7.json\" node ./other/reports.js",
+    "rates": "GOOGLE_APPLICATION_CREDENTIALS=\"./My Project 46435-cb6b70b79bc7.json\" node ./other/rates.js"
   }
 }
