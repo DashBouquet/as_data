@@ -384,7 +384,7 @@ const ADSET_INSIGHTS_FIELDS =
     CAMPAIGN_FIELDS,
     AD_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/adgroup
     ADSET_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
-    INSIGHTS_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/adgroup/insights/
+    // INSIGHTS_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/adgroup/insights/
     ADS_INSIGHTS_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/ads-insights/
-    ADSET_INSIGHTS_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/ad-campaign/insights/
+    // ADSET_INSIGHTS_FIELDS, // https://developers.facebook.com/docs/marketing-api/reference/ad-campaign/insights/
   }

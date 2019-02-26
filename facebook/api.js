@@ -1,7 +1,7 @@
 const { pathOr, flatten } = require('ramda')
 
 
-const { ADACCOUNT_FIELDS, CAMPAIGN_FIELDS, AD_FIELDS, ADSET_FIELDS, INSIGHTS_FIELDS, ADS_INSIGHTS_FIELDS, ADSET_INSIGHTS_FIELDS } = require('./constants')
+const { ADACCOUNT_FIELDS, CAMPAIGN_FIELDS, AD_FIELDS, ADSET_FIELDS, ADS_INSIGHTS_FIELDS } = require('./constants')
 
 // TODO: add time_range for insights
 
