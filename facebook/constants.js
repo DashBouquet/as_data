@@ -5,9 +5,9 @@ const ADACCOUNT_FIELDS =
   'age,' +
   'agency_client_declaration,' +
   'amount_spent,' +
-  'attribution_spec,' +
+  // 'attribution_spec,' +
   'balance,' +
-  'business,' +
+  // 'business,' +
   'business_city,' +
   'business_country_code,' +
   'business_name,' +
@@ -24,7 +24,7 @@ const ADACCOUNT_FIELDS =
   'end_advertiser_name,' +
   'failed_delivery_checks,' +
   'funding_source,' +
-  'funding_source_details,' +
+  // 'funding_source_details,' +
   'has_migrated_permissions,' +
   // 'has_page_authorized_adaccount,' + // The parameter page_id is required"
   'io_number,' +
@@ -53,7 +53,7 @@ const ADACCOUNT_FIELDS =
   'timezone_id,' +
   'timezone_name,' +
   'timezone_offset_hours_utc,' +
-  'tos_accepted,' +
+  // 'tos_accepted,' +
   'user_role,' +
   'user_tos_accepted'
 
@@ -78,7 +78,7 @@ const CAMPAIGN_FIELDS = 'id,' +
   'name,' +
   'objective,' +
   'recommendations,' +
-  'source_campaign,' +
+  // 'source_campaign,' +
   'source_campaign_id,' +
   'spend_cap,' +
   'start_time,' +
@@ -91,26 +91,26 @@ const AD_FIELDS =
   'account_id,' +
   'ad_review_feedback,' +
   'adlabels,' +
-  'adset,' +
+  // 'adset,' +
   'adset_id,' +
   'bid_amount,' +
-  'bid_info,' +
+  // 'bid_info,' +
   'bid_type,' +
-  'campaign,' +
+  // 'campaign,' +
   'campaign_id,' +
   'configured_status,' +
-  'conversion_specs,' +
+  // 'conversion_specs,' +
   'created_time,' +
-  'creative,' +
+  // 'creative,' +
   'effective_status,' +
   'issues_info,' +
   'last_updated_by_app_id,' +
   'name,' +
   'recommendations,' +
-  'source_ad,' +
+  // 'source_ad,' +
   'source_ad_id,' +
   'status,' +
-  'tracking_specs,' +
+  // 'tracking_specs,' +
   'updated_time'
 
 const ADSET_FIELDS =
@@ -118,13 +118,13 @@ const ADSET_FIELDS =
   'account_id,' +
   'adlabels,' +
   'adset_schedule,' +
-  'attribution_spec,' +
+  // 'attribution_spec,' +
   'bid_amount,' +
-  'bid_info,' +
+  // 'bid_info,' +
   'bid_strategy,' +
   'billing_event,' +
   'budget_remaining,' +
-  'campaign,' +
+  // 'campaign,' +
   'campaign_id,' +
   'configured_status,' +
   'created_time,' +
@@ -146,11 +146,11 @@ const ADSET_FIELDS =
   'name,' +
   'optimization_goal,' +
   'pacing_type,' +
-  'promoted_object,' +
+  // 'promoted_object,' +
   'recommendations,' +
   'recurring_budget_semantics,' +
   'rf_prediction_id,' +
-  'source_adset,' +
+  // 'source_adset,' +
   'source_adset_id,' +
   'start_time,' +
   'status,' +

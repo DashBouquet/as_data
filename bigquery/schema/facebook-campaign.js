@@ -19,7 +19,6 @@ module.exports = `
   name:string,
   objective:string,
   recommendations:string,
-  source_campaign:string,
   source_campaign_id:string,
   spend_cap:string,
   start_time:string,

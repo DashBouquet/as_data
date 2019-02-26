@@ -5,9 +5,7 @@ module.exports = `
   age:string,
   agency_client_declaration:string,
   amount_spent:string,
-  attribution_spec:string,
   balance:string,
-  business:string,
   business_city:string,
   business_country_code:string,
   business_name:string,
@@ -24,7 +22,6 @@ module.exports = `
   end_advertiser_name:string,
   failed_delivery_checks:string,
   funding_source:string,
-  funding_source_details:string,
   has_migrated_permissions:string,
   io_number:string,
   is_attribution_spec_system_default:string,
@@ -51,7 +48,6 @@ module.exports = `
   timezone_id:string,
   timezone_name:string,
   timezone_offset_hours_utc:string,
-  tos_accepted:string,
   user_role:string,
   user_tos_accepted:string
 `
