@@ -1,28 +1,132 @@
-module.exports = `
-  id:string,
-  account_id:string,
-  adlabels:string,
-  bid_strategy:string,
-  boosted_object_id:string,
-  brand_lift_studies:string,
-  budget_rebalance_flag:string,
-  budget_remaining:string,
-  buying_type:string,
-  can_create_brand_lift_study:string,
-  can_use_spend_cap:string,
-  configured_status:string,
-  created_time:string,
-  daily_budget:string,
-  effective_status:string,
-  issues_info:string,
-  lifetime_budget:string,
-  name:string,
-  objective:string,
-  recommendations:string,
-  source_campaign_id:string,
-  spend_cap:string,
-  start_time:string,
-  status:string,
-  stop_time:string,
-  updated_time:string
-`
+module.exports = [
+  {
+    "name": "id",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "account_id",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "adlabels",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "bid_strategy",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "boosted_object_id",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "brand_lift_studies",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "budget_rebalance_flag",
+    "type": "Boolean",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "budget_remaining",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "buying_type",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "can_create_brand_lift_study",
+    "type": "Boolean",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "can_use_spend_cap",
+    "type": "Boolean",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "configured_status",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "created_time",
+    "type": "Datetime",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "daily_budget",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "effective_status",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "issues_info",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "lifetime_budget",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "objective",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "recommendations",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "source_campaign_id",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "spend_cap",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "start_time",
+    "type": "Datetime",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "status",
+    "type": "string",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "stop_time",
+    "type": "DateTime",
+    "mode": "NULLABLE",
+  },
+  {
+    "name": "updated_time",
+    "type": "DateTime",
+    "mode": "NULLABLE",
+  },
+]
