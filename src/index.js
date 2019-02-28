@@ -109,4 +109,10 @@ async function fetchOldData () {
   }
 }
 
-fetchOldData()
+// fetchOldData()
+
+new CronJob(cron_fetch_time, function() {
+  const date = new Date()
+  fetchFacebookData({ insights: { time_range: { 'since': format(subDays(date, 1), 'YYYY-MM-DD'), 'until': format(date, 'YYYY-MM-DD') } } })
+}).start();
+
