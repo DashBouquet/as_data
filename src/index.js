@@ -1,9 +1,9 @@
-const { indexBy, prop, pathOr } = require('ramda')
+const { indexBy, prop, pathOr, omit } = require('ramda')
 const { format, subDays, } = require('date-fns');
 const CronJob = require('cron').CronJob;
 
 
-const { getAdaccounts, getCampaigns, getAds, getAdsets } = require('../facebook/api')
+const { getAdaccounts, getCampaigns, getAds, getAdsets, getFullAdaccountInfo } = require('../facebook/api')
 
 const { FB_CLIENT_ID, FB_CLIENT_SECRET, fb_exchange_token, fb_await_time_ms, cron_fetch_time } = require('../.env')
 const { FB_INSIGHT_TABLE_NAME, FB_CAMPAIGN_TABLE_NAME, FB_ADSET_TABLE_NAME, FB_AD_TABLE_NAME, FB_ADACCOUNT_TABLE_NAME } = require('../.env')
@@ -44,39 +44,41 @@ async function run(options) {
 
   const { since, until } = pathOr({}, ['insights', 'time_range'], options)
 
-  console.log('adaccounts')
-  const adaccounts = await getAdaccounts(FB, options)
-  await Promise.all(adaccounts.map(async ({adaccount, insights }) => {
+  const data = await getFullAdaccountInfo(FB, options).then(({data}) => data)
+
+  await Promise.all(data.map(async (info) => {
+    const adaccount = omit(['ads', 'campaigns', 'insights'], info)
+    const adaccount_insights = pathOr({}, ['insights', 'data', '0'], info)
+
+    const campaigns = pathOr([], ['campaigns', 'data'], info)
+    const ads = pathOr([], ['ads', 'data'], info)
+    const adsets = pathOr([], ['adsets', 'data'], info)
+
+
     adaccount.error ? console.log(adaccount) : await insertIntoTable(FB_ADACCOUNT_TABLE_NAME, adaccount, adaccount_schema)
-    adaccount.error || insights.error ? console.log(insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...insights.data[0], descriptor: 'ADACCOUNT', id: `insights/${adaccount.id}/${since}/${until}` }, insight_schema)
-  }))
-  delete(adaccounts)
+    adaccount.error || adaccount_insights.error ? console.log(adaccount_insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...adaccount_insights, descriptor: 'ADACCOUNT', id: `insights/${adaccount.id}/${since}/${until}` }, insight_schema)
 
-  console.log('ads')
-  const ads = await getAds(FB, options)
-  await Promise.all(ads.map(async ({ad, insights }) => {
-    ad.error ? console.log(ad) : await insertIntoTable(FB_AD_TABLE_NAME, ad, ad_schema)
-    ad.error || insights.error ? console.log(insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...insights.data[0], descriptor: 'AD', id: `insights/${ad.id}/${since}/${until}` }, insight_schema)
-  }))
-  delete(ads)
+    await Promise.all(campaigns.map(async c => {
+      const campaign = omit(['insights'], c)
+      const campaign_insights = pathOr({}, ['insights', 'data', '0'], c)
+      campaign.error ? console.log(campaign) : await insertIntoTable(FB_CAMPAIGN_TABLE_NAME, campaign, campaign_schema)
+      campaign.error || campaign_insights.error ? console.log(campaign_insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...campaign_insights, descriptor: 'CAMPAIGN', id: `insights/${campaign.id}/${since}/${until}` }, insight_schema)
+    }))
 
-  console.log('adsets')
-  const adsets = await getAdsets(FB, options)
-  await Promise.all(adsets.map(async ({adset, insights }) => {
-    adset.error ? console.log(adset) : await insertIntoTable(FB_ADSET_TABLE_NAME, adset, adset_schema)
-    adset.error || insights.error ? console.log(insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...insights.data[0], descriptor: 'ADSET', id: `insights/${adset.id}/${since}/${until}`}, insight_schema)
-  }))
-  delete(adsets)
+    await Promise.all(ads.map(async a => {
+      const ad = omit(['insights'], a)
+      const ad_insights = pathOr({}, ['insights', 'data', '0'], a)
+      ad.error ? console.log(ad) : await insertIntoTable(FB_AD_TABLE_NAME, ad, ad_schema)
+      ad.error || ad_insights.error ? console.log(ad_insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...ad_insights, descriptor: 'CAMPAIGN', id: `insights/${ad.id}/${since}/${until}` }, insight_schema)
+    }))
 
-  console.log('campaigns')
-  const campaigns = await getCampaigns(FB, options)
-  await Promise.all(campaigns.map(async ({campaign, insights }) => {
-    campaign.error ? console.log(campaign) : await insertIntoTable(FB_CAMPAIGN_TABLE_NAME, campaign, campaign_schema)
-    campaign.error || insights.error ? console.log(insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...insights.data[0], descriptor: 'CAMPAIGN', id: `insights/${campaign.id}/${since}/${until}` }, insight_schema)
+    await Promise.all(adsets.map(async a => {
+      const adset = omit(['insights'], a)
+      const adset_insights = pathOr({}, ['insights', 'data', '0'], a)
+      adset.error ? console.log(ad) : await insertIntoTable(FB_ADSET_TABLE_NAME, adset, adset_schema)
+      adset.error || adset_insights.error ? console.log(adset_insights) : await insertIntoTable(FB_INSIGHT_TABLE_NAME, { ...adset_insights, descriptor: 'CAMPAIGN', id: `insights/${adset.id}/${since}/${until}` }, insight_schema)
+    }))
   }))
-  delete(campaigns)
-
-  console.log('finish')
 }
 
 
