@@ -5,6 +5,11 @@ module.exports = [
     "mode": "NULLABLE",
   },
   {
+    "name": "descriptor",
+    "type": "String",
+    "mode": "NULLABLE",
+  },
+  {
     "name": "account_currency",
     "type": "String",
     "mode": "NULLABLE",
