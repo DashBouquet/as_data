@@ -12,6 +12,21 @@ const { ADACCOUNT_FIELDS, CAMPAIGN_FIELDS, AD_FIELDS, ADSET_FIELDS, ADS_INSIGHTS
  * 
  */
 
+async function getFullAdaccountInfo(FB, options) {
+  const { since, until } = pathOr({}, ['insights', 'time_range'], options)
+
+  if (!since && !until) { throw new Error('fields since and until are required') }
+
+  const insightsFields = `insights.time_range({'until':'${until}', 'since':'${since}'}){${ADS_INSIGHTS_FIELDS}}`
+  
+  const fields = `${ADACCOUNT_FIELDS}, ${insightsFields},` +
+    `campaigns{${CAMPAIGN_FIELDS}, ${insightsFields}},` +
+    `ads{${AD_FIELDS}, ${insightsFields}},` +
+    `adsets{${ADSET_FIELDS}, ${insightsFields}}`
+
+  return await FB.api_promise('me/adaccounts', { fields })
+}
+
 async function getAdaccounts(FB, options) {
   const ids = await FB.api_promise('me/adaccounts', { fields: 'id' })
     .then(({data}) => data)
@@ -81,4 +96,5 @@ module.exports = {
   getCampaigns,
   getAds,
   getAdsets,
+  getFullAdaccountInfo,
 }
