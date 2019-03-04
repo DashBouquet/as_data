@@ -17,6 +17,8 @@ const toFormat = (value, type) => {
       return value
     case 'datetime':
       return `"${format(value, 'YYYY-MM-DD')}"`
+    case 'numeric':
+      return Number(value)
     default:
       return `"${value}"`
   }
