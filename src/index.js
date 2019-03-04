@@ -47,7 +47,7 @@ async function run(options) {
   const data = await getFullAdaccountInfo(FB, options).then(({data}) => data)
 
   await Promise.all(data.map(async (info) => {
-    const adaccount = omit(['ads', 'campaigns', 'insights'], info)
+    const adaccount = omit(['ads', 'campaigns', 'insights', 'adsets'], info)
     const adaccount_insights = pathOr({}, ['insights', 'data', '0'], info)
 
     const campaigns = pathOr([], ['campaigns', 'data'], info)
@@ -98,7 +98,7 @@ async function fetchFacebookData(options) {
 }
 
 async function fetchOldData () {
-  let date = new Date()
+  let date = new Date('2019-02-05')
   const endDate = new Date('10-03-2018')
 
   console.log('current date', date)
