@@ -26,12 +26,12 @@ module.exports = [
   },
   {
     "name": "amount_spent",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "balance",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -176,12 +176,12 @@ module.exports = [
   },
   {
     "name": "min_campaign_group_spend_cap",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "min_daily_budget",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {

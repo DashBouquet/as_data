@@ -71,17 +71,17 @@ module.exports = [
   },
   {
     "name": "canvas_avg_view_percent",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "canvas_avg_view_time",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "clicks",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -106,12 +106,12 @@ module.exports = [
   },
   {
     "name": "cost_per_inline_link_click",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "cost_per_inline_post_engagement",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -131,12 +131,12 @@ module.exports = [
   },
   {
     "name": "cost_per_unique_click",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "cost_per_unique_inline_link_click",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -146,22 +146,22 @@ module.exports = [
   },
   {
     "name": "cpc",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "cpm",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "cpp",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "ctr",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -181,32 +181,32 @@ module.exports = [
   },
   {
     "name": "estimated_ad_recallers",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "frequency",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "impressions",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "inline_link_click_ctr",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "inline_link_clicks",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "inline_post_engagement",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -246,7 +246,7 @@ module.exports = [
   },
   {
     "name": "reach",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -256,12 +256,12 @@ module.exports = [
   },
   {
     "name": "social_spend",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "spend",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -271,27 +271,27 @@ module.exports = [
   },
   {
     "name": "unique_clicks",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "unique_ctr",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "unique_inline_link_click_ctr",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "unique_inline_link_clicks",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
     "name": "unique_link_clicks_ctr",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {

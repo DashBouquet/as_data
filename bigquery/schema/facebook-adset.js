@@ -21,7 +21,7 @@ module.exports = [
   },
   {
     "name": "bid_amount",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -36,7 +36,7 @@ module.exports = [
   },
   {
     "name": "budget_remaining",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -61,7 +61,7 @@ module.exports = [
   },
   {
     "name": "daily_budget",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {

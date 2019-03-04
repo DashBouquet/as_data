@@ -36,7 +36,7 @@ module.exports = [
   },
   {
     "name": "budget_remaining",
-    "type": "string",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -66,7 +66,7 @@ module.exports = [
   },
   {
     "name": "daily_budget",
-    "type": "string",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
@@ -81,7 +81,7 @@ module.exports = [
   },
   {
     "name": "lifetime_budget",
-    "type": "string",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {

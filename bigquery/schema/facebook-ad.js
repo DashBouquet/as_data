@@ -26,7 +26,7 @@ module.exports = [
   },
   {
     "name": "bid_amount",
-    "type": "String",
+    "type": "Numeric",
     "mode": "NULLABLE",
   },
   {
