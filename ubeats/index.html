@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Ubeats_itunes (2)</title>
+<title>Ubeats_itunes </title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13140,7 +13140,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[444]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13150,6 +13150,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="k">import</span> <span class="n">download_plotlyjs</span><span class="p">,</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">iplot</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">optimize</span><span class="p">,</span><span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="k">import</span> <span class="n">relativedelta</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13343,6 +13344,31 @@ memory usage: 44.4+ MB
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ubeats_app_id</span> <span class="o">=</span> <span class="s1">&#39;1238153568&#39;</span>
 <span class="n">mmm_app_id</span> <span class="o">=</span> <span class="s1">&#39;1355347116&#39;</span>
 <span class="n">piano_app_id</span><span class="o">=</span> <span class="s1">&#39;1276147378&#39;</span>
+
+<span class="n">weekly_subscriptions_price</span> <span class="o">=</span> <span class="mf">7.99</span>
+<span class="n">monthly_subscriptions_price</span> <span class="o">=</span> <span class="mf">16.99</span>
+<span class="n">annual_subscriptions_price</span> <span class="o">=</span> <span class="mf">39.99</span>
+
+    
+<span class="n">weekly_subscription_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Weekly subscription with 3-day trial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Week subscription with 3 days trial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Weekly subscription with 3-day trial by 8.99&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Week subscription with 7 days trial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Week subscription with 3 days trial by 3.99&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Week subscription with 3 days trial by 0.99&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">monthly_subscription_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Month subscription new&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Month subscription with 7 days trial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Month subscription&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">annual_subscription_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Year subscription new&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Year subscription&#39;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="n">payment_events</span> <span class="o">=</span> <span class="p">[</span>
 <span class="c1">#  &#39;Billing Retry from Introductory Offer&#39;,</span>
@@ -15652,6 +15678,192 @@ TODO: Найти причину</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#1050;&#1086;&#1085;&#1074;&#1077;&#1088;&#1089;&#1080;&#1080;-&#1087;&#1086;-&#1089;&#1090;&#1088;&#1072;&#1085;&#1072;&#1084;">&#1050;&#1086;&#1085;&#1074;&#1077;&#1088;&#1089;&#1080;&#1080; &#1087;&#1086; &#1089;&#1090;&#1088;&#1072;&#1085;&#1072;&#1084;<a class="anchor-link" href="#&#1050;&#1086;&#1085;&#1074;&#1077;&#1088;&#1089;&#1080;&#1080;-&#1087;&#1086;-&#1089;&#1090;&#1088;&#1072;&#1085;&#1072;&#1084;">&#182;</a></h4><p>график конверсии по неделям (для стран).</p>
+<p>график построен для стран, в которых не менее 100 триалов за рассматриваемое время.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_convert_by_week</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">week_count</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">week_count</span><span class="p">):</span>
+    <span class="n">trials</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">i</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span> <span class="mi">7</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">trial_started_events</span><span class="p">))][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">payments</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">i</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span> <span class="mi">7</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">trials</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">i</span><span class="p">)])</span>
+    <span class="k">if</span> <span class="n">trials</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">payments</span> <span class="o">/</span> <span class="n">trials</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="n">i</span><span class="p">)])</span>
+  <span class="k">return</span> <span class="n">data</span>
+
+<span class="k">def</span> <span class="nf">show_bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">week_count</span><span class="p">):</span>
+ 
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  
+  <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">):</span>
+    <span class="n">trials</span> <span class="o">=</span> <span class="n">group</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">trial_started_events</span><span class="p">))][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">if</span>  <span class="n">trials</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+      <span class="n">points</span> <span class="o">=</span> <span class="n">get_convert_by_week</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">week_count</span><span class="p">)</span>
+      <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">points</span><span class="p">))</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">)),</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="s1">&#39;legendonly&#39;</span><span class="p">))</span>
+
+  <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">configure_plotly_browser_state</span><span class="p">()</span>
+  <span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[443]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">show_bar</span><span class="p">(</span><span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))],</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python3.6/dist-packages/ipykernel_launcher.py:18: UserWarning:
+
+Boolean Series key will be reindexed to match DataFrame index.
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+
+        <script src="/static/components/requirejs/require.js"></script>
+        <script>
+          requirejs.config({
+            paths: {
+              base: '/static/base',
+              plotly: 'https://cdn.plot.ly/plotly-latest.min.js?noext',
+            },
+          });
+        </script>
+        
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div id="b17b00d3-8b36-46f5-9367-15947292c07a" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("b17b00d3-8b36-46f5-9367-15947292c07a", [{"name": "ARE", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [1.2, 0.4, 0.125, 0.5833333333333334, 0.42857142857142855, 0.2222222222222222, 0.5555555555555556, 0.6875, 0.4444444444444444, 0.06666666666666667, 0, 0], "type": "scatter", "uid": "dcfc3a6c-fc06-450b-bdd1-9861e623b107"}, {"name": "AUS", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.6, 0.6923076923076923, 0.7575757575757576, 1.0, 0.75, 0.9791666666666666, 0.41935483870967744, 1.1153846153846154, 0.65, 0.15384615384615385, 0, 0], "type": "scatter", "uid": "846ad525-83c2-4080-84d3-402e50bf1dc5"}, {"name": "BEL", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.5238095238095238, 0.3333333333333333, 0.2777777777777778, 0.3333333333333333, 0.3333333333333333, 0.75, 1.0, 0.25, 0.3333333333333333, 0.3333333333333333, 0, 0], "type": "scatter", "uid": "a3095b0e-faff-460f-8a46-adb0f0ed73bd"}, {"name": "BRA", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.23076923076923078, 1.0, 0.4, 0.36363636363636365, 0.8888888888888888, 0.5925925925925926, 0.4, 0.46153846153846156, 0.42857142857142855, 0.16666666666666666, 0, 0], "type": "scatter", "uid": "26a47acd-780b-4748-a1bc-1b15a8fcca9b"}, {"name": "CAN", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.7368421052631579, 0.6486486486486487, 0.35294117647058826, 0.875, 0.38095238095238093, 0.5357142857142857, 0.7307692307692307, 0.45714285714285713, 1.625, 0.2727272727272727, 0, 0], "type": "scatter", "uid": "3c1063b2-214f-49a7-b4c8-cdfcc1c8ce58"}, {"name": "CZE", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.0, 0.375, 0.2, 0.25, 0.6, 0.2, 0.6666666666666666, 0.5, 0.5, 0.0, 0, 0], "type": "scatter", "uid": "7e8fec4a-1e34-40c3-91b3-6a9c07a2f7f5"}, {"name": "DEU", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.26666666666666666, 0.6428571428571429, 0.42857142857142855, 0.25, 0.125, 0.25, 1.0, 0.47058823529411764, 0.0, 0.0, 0, 0], "type": "scatter", "uid": "0fa2f7e9-49c3-43c8-8b79-010640167ef1"}, {"name": "FRA", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [1.0, 0.5625, 1.1538461538461537, 1.0, 0.7, 0.8, 0.3333333333333333, 0.8333333333333334, 0.7272727272727273, 0.0, 0, 0], "type": "scatter", "uid": "d0fab6d3-f61b-46b9-8120-4caa8b4c8f2e"}, {"name": "GBR", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.49019607843137253, 0.6623376623376623, 0.37142857142857144, 0.5675675675675675, 0.5178571428571429, 0.6833333333333333, 0.717948717948718, 0.4603174603174603, 0.26666666666666666, 0.14285714285714285, 0, 0], "type": "scatter", "uid": "943cb885-23d1-4efd-b97f-c87976130633"}, {"name": "HUN", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.3333333333333333, 0.125, 0.375, 1.3333333333333333, 0.25, 1.0, 0.5, 0.0, 0.6666666666666666, 0.0, 0, 0], "type": "scatter", "uid": "71804778-b15d-4cff-8f94-c542c00567a6"}, {"name": "IND", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.25, 0.9, 1.0, 0.5, 0.25, 0.3888888888888889, 0.5, 0.5882352941176471, 0.5, 0.2857142857142857, 0, 0], "type": "scatter", "uid": "4c20e7b9-1cf9-48d0-9f89-09af176b2a2c"}, {"name": "ITA", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.6785714285714286, 0.4074074074074074, 0.10344827586206896, 0.4, 0.1, 0.3333333333333333, 0.3333333333333333, 0.0, 0.0, 0.0, 0, 0], "type": "scatter", "uid": "d6b56ce4-f382-4158-bc16-622eee06c466"}, {"name": "JPN", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.6285714285714286, 0.9032258064516129, 1.0909090909090908, 0.6666666666666666, 0.46153846153846156, 0.7333333333333333, 0.6190476190476191, 0.4444444444444444, 0.7142857142857143, 0.14285714285714285, 0, 0], "type": "scatter", "uid": "823ea9ef-a79f-4170-9bc7-352a1b595572"}, {"name": "KHM", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.03571428571428571, 0.2857142857142857, 0.06451612903225806, 0.18518518518518517, 0.10526315789473684, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0], "type": "scatter", "uid": "9cbf1ece-8200-4500-b037-61673b00ce7f"}, {"name": "MEX", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.375, 0.1, 0.4166666666666667, 0.1111111111111111, 0.7, 0.5714285714285714, 0.5555555555555556, 0.2222222222222222, 0.0, 0.25, 0, 0], "type": "scatter", "uid": "27860ec1-ab54-4aa3-b25b-954bb437d3cd"}, {"name": "MYS", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.25806451612903225, 0.15384615384615385, 0.2, 0.0, 0.16666666666666666, 0.5, 0.36363636363636365, 0.0, 0.0, 0.09090909090909091, 0, 0], "type": "scatter", "uid": "eca116f3-8519-45f8-8a83-f12b28296092"}, {"name": "NZL", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.8333333333333334, 0.5555555555555556, 0.6, 0.2222222222222222, 0.5, 3.0, 0.0, 0.6666666666666666, 0.3333333333333333, 0.0, 0, 0], "type": "scatter", "uid": "bf1f4ec7-627b-4ebb-b15f-f87efff26663"}, {"name": "PHL", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.23529411764705882, 0.0, 0.0, 0.23076923076923078, 0.5555555555555556, 0.0, 0, 1.0, 0.0, 0.0, 0, 0], "type": "scatter", "uid": "bd3b78cf-db7b-4dc2-b1e1-8f99d24ecb13"}, {"name": "RUS", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.3125, 0.45098039215686275, 0.12244897959183673, 0.2692307692307692, 0.16, 0.2, 0.12, 0.11290322580645161, 0.1794871794871795, 0.08771929824561403, 0, 0], "type": "scatter", "uid": "7fb0d5e8-9417-4575-9b35-a074bcc3c721"}, {"name": "THA", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.16, 0.0, 0.19047619047619047, 0.23076923076923078, 0.20833333333333334, 0.10526315789473684, 0.2, 0.0, 0.0, 0.0, 0, 0], "type": "scatter", "uid": "58f1f91f-5438-408a-b4d4-3d45c9eed38e"}, {"name": "TUR", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.25, 0.23809523809523808, 0.5333333333333333, 0.75, 0.16666666666666666, 0.0, 0.5, 1.0, 0.16666666666666666, 0.3, 0, 0], "type": "scatter", "uid": "144eea22-b6e8-4340-9543-82fbb5ed7b41"}, {"name": "UKR", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.0, 0.0, 0.2857142857142857, 0.0, 0.25, 0.3333333333333333, 0.0, 0.0, 0.4, 0.08333333333333333, 0, 0], "type": "scatter", "uid": "0fc4a053-a03a-4c22-a3d5-6905d56f9476"}, {"name": "USA", "visible": "legendonly", "x": ["2019-02-10", "2019-02-17", "2019-02-24", "2019-03-03", "2019-03-10", "2019-03-17", "2019-03-24", "2019-03-31", "2019-04-07", "2019-04-14", "2019-04-21", "2019-04-28"], "y": [0.512621359223301, 0.5692640692640693, 0.6093023255813953, 0.6550387596899225, 0.7248062015503876, 0.5835866261398176, 0.5571428571428572, 0.5614035087719298, 0.3906810035842294, 0.2564102564102564, 0, 0], "type": "scatter", "uid": "ed5a5354-6c35-45a8-8a7e-cc1930d8d787"}], {}, {"showLink": false, "linkText": "Export to plot.ly", "plotlyServerURL": "https://plot.ly"})});</script><script type="text/javascript">window.addEventListener("resize", function(){window._Plotly.Plots.resize(document.getElementById("b17b00d3-8b36-46f5-9367-15947292c07a"));});</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>График построен по данным с 01.01.19 по 01.05.19</p>
+<p>Из графика видно, как менялась конверсия  по странам в течении времени.</p>
+<p>По графику можем сравнить конверсию между странами.</p>
+<p><strong> По умолчанию графики спрятаны. Нажмите на страну, чтобы открыть/скрыть график. </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[407]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trace</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">y</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">configure_plotly_browser_state</span><span class="p">()</span>
+<span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+
+        <script src="/static/components/requirejs/require.js"></script>
+        <script>
+          requirejs.config({
+            paths: {
+              base: '/static/base',
+              plotly: 'https://cdn.plot.ly/plotly-latest.min.js?noext',
+            },
+          });
+        </script>
+        
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div id="b557cb95-3d98-4dc3-ba17-4cd57b9fa9f1" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("b557cb95-3d98-4dc3-ba17-4cd57b9fa9f1", [{"x": ["ARE", "AUS", "BEL", "BRA", "CAN", "CZE", "DEU", "FRA", "GBR", "IND", "IRL", "ITA", "JPN", "KHM", "MEX", "MYS", "RUS", "THA", "TUR", "UKR", "USA"], "y": [0.2620689655172414, 0.4646840148698885, 0.23076923076923078, 0.38181818181818183, 0.38461538461538464, 0.2962962962962963, 0.1951219512195122, 0.475, 0.31002331002331, 0.36082474226804123, 0.3076923076923077, 0.11926605504587157, 0.45454545454545453, 0.07547169811320754, 0.25, 0.08333333333333333, 0.10648148148148148, 0.10218978102189781, 0.288135593220339, 0.08771929824561403, 0.36941710825132473], "type": "bar", "uid": "5e014882-622b-4a67-896b-4128a075696f"}], {}, {"showLink": false, "linkText": "Export to plot.ly", "plotlyServerURL": "https://plot.ly"})});</script><script type="text/javascript">window.addEventListener("resize", function(){window._Plotly.Plots.resize(document.getElementById("b557cb95-3d98-4dc3-ba17-4cd57b9fa9f1"));});</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#1040;&#1085;&#1072;&#1083;&#1080;&#1079;-&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;">&#1040;&#1085;&#1072;&#1083;&#1080;&#1079; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;<a class="anchor-link" href="#&#1040;&#1085;&#1072;&#1083;&#1080;&#1079;-&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;">&#182;</a></h3>
 </div>
 </div>
@@ -16167,8 +16379,8 @@ TODO: Найти причину</p>
 <div class="prompt input_prompt">In&nbsp;[0]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">paying_users_mar</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">paying_users_apr</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">paying_users_mar</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">paying_users_apr</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -16178,7 +16390,7 @@ TODO: Найти причину</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[295]:</div>
+<div class="prompt input_prompt">In&nbsp;[378]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Конверсия в марте: &#39;</span><span class="p">,</span> <span class="n">paying_users_mar</span> <span class="o">/</span> <span class="n">trials_mar</span><span class="p">)</span>
@@ -16199,8 +16411,8 @@ TODO: Найти причину</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Конверсия в марте:  0.8614602034709754637941352484
-Конверсия в апреле:  0.4878253568429890848026868178
+<pre>Конверсия в марте:  0.3369239976062238180730101735
+Конверсия в апреле:  0.3089840470193115029387069689
 </pre>
 </div>
 </div>
@@ -16233,8 +16445,7 @@ TODO: Найти причину</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="LTV">LTV<a class="anchor-link" href="#LTV">&#182;</a></h3><p>LTV по месяцам</p>
-
+<h3 id="LTV">LTV<a class="anchor-link" href="#LTV">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -16243,15 +16454,29 @@ TODO: Найти причину</p>
 <div class="prompt input_prompt">In&nbsp;[0]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calcLTV</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
-  <span class="n">price</span> <span class="o">=</span> <span class="mf">7.99</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calcLTV</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
   <span class="n">share</span> <span class="o">=</span> <span class="mf">0.7</span>
   
-  <span class="n">payments_count</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-  <span class="n">payments_refund_count</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Refund&#39;</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-  <span class="n">paying_users_count</span> <span class="o">=</span> <span class="n">ubeats</span><span class="p">[(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+  <span class="n">payments</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">weekly_subscription_names</span><span class="p">)</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="n">weekly_subscriptions_price</span> <span class="o">+</span>
+      <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">monthly_subscription_names</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="n">monthly_subscriptions_price</span> <span class="o">+</span>
+      <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">annual_subscription_names</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="n">annual_subscriptions_price</span>
+  <span class="p">)</span>
+  <span class="n">payments_refund</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">weekly_subscription_names</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Refund&#39;</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="n">weekly_subscriptions_price</span> <span class="o">+</span> 
+      <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">monthly_subscription_names</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Refund&#39;</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="n">monthly_subscriptions_price</span> <span class="o">+</span>
+      <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">annual_subscription_names</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Refund&#39;</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="n">annual_subscriptions_price</span>
+  <span class="p">)</span>
 
-  <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="n">share</span> <span class="o">*</span> <span class="nb">float</span><span class="p">((</span> <span class="n">payments_count</span> <span class="o">-</span> <span class="n">payments_refund_count</span> <span class="p">)</span> <span class="o">/</span> <span class="n">paying_users_count</span> <span class="p">)</span>
+  <span class="n">paying_users_count</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span>
+      <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> 
+      <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Refund&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+  <span class="p">)</span>
+  
+  <span class="k">if</span> <span class="n">paying_users_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">0</span>
+  
+  <span class="k">return</span> <span class="n">share</span> <span class="o">*</span> <span class="nb">float</span><span class="p">((</span> <span class="n">payments</span> <span class="o">-</span> <span class="n">payments_refund</span> <span class="p">)</span> <span class="o">/</span> <span class="n">paying_users_count</span> <span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16259,25 +16484,32 @@ TODO: Найти причину</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="LTV-&#1087;&#1086;-&#1084;&#1077;&#1089;&#1103;&#1094;&#1072;&#1084;">LTV &#1087;&#1086; &#1084;&#1077;&#1089;&#1103;&#1094;&#1072;&#1084;<a class="anchor-link" href="#LTV-&#1087;&#1086;-&#1084;&#1077;&#1089;&#1103;&#1094;&#1072;&#1084;">&#182;</a></h4>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[322]:</div>
+<div class="prompt input_prompt">In&nbsp;[468]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 03.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 04.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 05.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 06.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 07.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 08.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 09.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 10.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 11.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 12.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 01.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 02.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 03.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 04.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 03.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 04.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 05.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 06.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 07.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 08.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 09.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 10.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 11.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 12.18: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 01.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 02.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 03.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LTV 04.19: &#39;</span><span class="p">,</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 
     </div>
@@ -16294,20 +16526,20 @@ TODO: Найти причину</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>LTV 03.18:  41.47262264150944
-LTV 04.18:  44.53098051372896
-LTV 05.18:  43.149011306532664
-LTV 06.18:  38.62239329268292
-LTV 07.18:  38.54275531011045
-LTV 08.18:  36.302018766756035
-LTV 09.18:  31.96379572446556
-LTV 10.18:  30.267810810810808
-LTV 11.18:  27.64907740585774
-LTV 12.18:  24.458327878103834
-LTV 01.19:  22.658964788732394
-LTV 02.19:  19.131297106109326
-LTV 03.19:  14.012302841918293
-LTV 04.19:  8.036897826086957
+<pre>LTV 03.18:  42.61306595744681
+LTV 04.18:  46.41545429864254
+LTV 05.18:  44.5779220945083
+LTV 06.18:  40.085287656903766
+LTV 07.18:  39.61326666666667
+LTV 08.18:  37.27651092896175
+LTV 09.18:  33.00666992068334
+LTV 10.18:  31.468456483126108
+LTV 11.18:  28.62864727011494
+LTV 12.18:  25.435714202561112
+LTV 01.19:  23.554221413721418
+LTV 02.19:  19.865958139534882
+LTV 03.19:  14.4964738771769
+LTV 04.19:  8.246946784922393
 </pre>
 </div>
 </div>
@@ -16319,7 +16551,7 @@ LTV 04.19:  8.036897826086957
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>24.04.2019</strong></p>
+<p><strong>24.04.2019</strong> (без учета разных видов подписок)</p>
 
 <pre><code>LTV 03.18:  41.47262264150944
 LTV 04.18:  44.53098051372896
@@ -16335,6 +16567,180 @@ LTV 01.19:  22.658964788732394
 LTV 02.19:  19.131297106109326
 LTV 03.19:  14.012302841918293
 LTV 04.19:  8.036897826086957</code></pre>
+<p><strong>24.04.2019</strong> (с учетом разных видов подписок)</p>
+
+<pre><code>LTV 03.18:  42.61306595744681
+LTV 04.18:  46.41545429864254
+LTV 05.18:  44.5779220945083
+LTV 06.18:  40.085287656903766
+LTV 07.18:  39.61326666666667
+LTV 08.18:  37.27651092896175
+LTV 09.18:  33.00666992068334
+LTV 10.18:  31.468456483126108
+LTV 11.18:  28.62864727011494
+LTV 12.18:  25.435714202561112
+LTV 01.19:  23.554221413721418
+LTV 02.19:  19.865958139534882
+LTV 03.19:  14.4964738771769
+LTV 04.19:  8.246946784922393</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[469]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ubeats</span><span class="p">[</span><span class="s1">&#39;subscription_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[469]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Weekly subscription with 3-day trial            151128
+Week subscription with 3 days trial              18190
+Weekly subscription with 3-day trial by 8.99     16920
+Week subscription with 7 days trial               6850
+Week subscription with 3 days trial by 3.99       2088
+Month subscription new                             972
+Month subscription with 7 days trial               829
+Month subscription                                 596
+Week subscription with 3 days trial by 0.99        352
+Year subscription new                              315
+Year subscription                                   81
+Name: subscription_name, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="LTV-&#1087;&#1086;-&#1089;&#1090;&#1088;&#1072;&#1085;&#1072;&#1084;">LTV &#1087;&#1086; &#1089;&#1090;&#1088;&#1072;&#1085;&#1072;&#1084;<a class="anchor-link" href="#LTV-&#1087;&#1086;-&#1089;&#1090;&#1088;&#1072;&#1085;&#1072;&#1084;">&#182;</a></h4><p>Рассматриваются только месяца, в которых было больше 5 подписок.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">show_bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">week_count</span><span class="p">):</span>
+  
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">week_count</span><span class="p">):</span>
+    <span class="n">s_d</span> <span class="o">=</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">e_d</span> <span class="o">=</span> <span class="n">start_date</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">group</span><span class="p">[(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">s_d</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;original_start_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">e_d</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">payment_events</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;consecutive_paid_periods&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcLTV</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">s_d</span><span class="p">,</span> <span class="n">e_d</span><span class="p">)</span>
+
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">y</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">name</span> <span class="o">=</span> <span class="n">s_d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y&quot;</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+
+
+  <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">configure_plotly_browser_state</span><span class="p">()</span>
+  <span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[475]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">show_bar</span><span class="p">(</span><span class="n">ubeats</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+
+        <script src="/static/components/requirejs/require.js"></script>
+        <script>
+          requirejs.config({
+            paths: {
+              base: '/static/base',
+              plotly: 'https://cdn.plot.ly/plotly-latest.min.js?noext',
+            },
+          });
+        </script>
+        
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div id="fcfbc10e-115d-428f-a220-3096f7729f64" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("fcfbc10e-115d-428f-a220-3096f7729f64", [{"name": "03/01/2018", "x": ["AUS", "CAN", "FRA", "GBR", "ITA", "JPN", "RUS", "USA"], "y": [47.28627272727273, 15.180999999999997, 77.602875, 44.576354430379745, 27.965, 99.74183333333333, 20.216583333333332, 46.659578059071734], "type": "bar", "uid": "ef19f0fb-602c-46eb-905b-caa278c1eeff"}, {"name": "04/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CZE", "DEU", "DNK", "ESP", "FIN", "FRA", "GBR", "IDN", "IND", "IRL", "ISR", "ITA", "MEX", "MYS", "NLD", "NOR", "NZL", "PHL", "PRT", "RUS", "TUR", "USA"], "y": [89.48799999999999, 37.62563636363636, 59.57043298969072, 20.7648, 24.769000000000002, 41.95216666666666, 36.5304625, 35.083363636363636, 30.296466666666667, 22.83808333333333, 53.832625, 52.82277777777777, 21.672874999999998, 48.27969999999999, 39.660655999999996, 139.825, 31.497421052631577, 56.68103636363637, 91.70233333333333, 71.111, 26.100666666666665, 42.32246666666667, 42.879666666666665, 52.24099999999999, 33.09191666666666, 22.372, 43.81183333333333, 20.53865625, 15.180999999999997, 55.6324887459807], "type": "bar", "uid": "ff8d8109-70b9-426c-9da9-75769c4594b1"}, {"name": "05/01/2018", "x": ["ARG", "AUS", "AUT", "CAN", "CHE", "CZE", "DEU", "ESP", "FRA", "GBR", "IRL", "ITA", "JPN", "NOR", "RUS", "SWE", "USA"], "y": [44.1847, 46.47151063829788, 80.699, 33.133130434782615, 39.68125, 43.50111111111111, 48.21303846153846, 75.5055, 106.90066666666667, 49.75145945945946, 32.315111111111115, 40.36686956521739, 58.98072727272727, 65.71918181818182, 21.105583333333332, 58.35363333333332, 41.93697643097642], "type": "bar", "uid": "eaa63dfd-c8ab-4a73-bdac-11be1ebd00bf"}, {"name": "06/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "COL", "CZE", "DEU", "DNK", "ESP", "FRA", "GBR", "HUN", "IDN", "IND", "IRL", "ISR", "ITA", "JPN", "MEX", "NLD", "NOR", "PRT", "RUS", "SWE", "TUR", "USA"], "y": [18.643333333333334, 77.0113076923077, 30.568637931034484, 27.965, 62.92125, 43.967194444444445, 56.82487999999999, 36.66522222222222, 12.584249999999999, 44.31376923076923, 18.455499999999997, 38.56246153846154, 41.281666666666666, 30.86740740740741, 44.9837294117647, 28.664125000000002, 121.64774999999999, 66.09808333333332, 20.880533333333336, 45.572592592592585, 30.761499999999998, 64.31822727272727, 21.672874999999998, 37.1535, 65.018625, 9.787749999999999, 24.87920689655172, 52.66741666666666, 11.186, 39.15133447098977], "type": "bar", "uid": "4e5b94c8-e609-4832-8c23-b409e0589da2"}, {"name": "07/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHL", "COL", "CZE", "DEU", "DNK", "ESP", "FRA", "GBR", "IDN", "IND", "ISR", "ITA", "JPN", "MEX", "NLD", "NOR", "PRT", "RUS", "SWE", "TUR", "USA", "ZAF"], "y": [13.767384615384616, 36.139384615384614, 44.831390625, 48.099799999999995, 11.745299999999999, 57.42146666666667, 30.901325, 55.069538461538464, 75.83635294117647, 30.450777777777773, 40.39388888888889, 26.45919230769231, 74.307, 19.225937499999997, 48.32019999999999, 34.411089999999994, 73.72590909090908, 15.058076923076921, 70.84933333333332, 25.09679487179487, 70.37858333333334, 31.5605, 57.79433333333333, 54.01534782608695, 62.08229999999999, 16.134730769230767, 65.018625, 52.948, 38.00871284634761, 48.239625000000004], "type": "bar", "uid": "6e593eeb-b700-4548-bb2f-7895ca099fab"}, {"name": "08/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHL", "CHN", "CZE", "DEU", "DNK", "ESP", "FRA", "GBR", "IND", "IRL", "ISR", "ITA", "JPN", "MEX", "NLD", "NOR", "PRT", "RUS", "SWE", "THA", "TUR", "USA", "ZAF"], "y": [22.3076, 29.0836, 31.651295454545455, 35.775833333333324, 23.863466666666667, 37.88272727272727, 35.375846153846155, 40.7995, 41.73238461538461, 19.974999999999998, 56.629125, 30.15833333333334, 63.38733333333334, 47.19290624999999, 70.7956052631579, 44.9136935483871, 37.177, 30.598647058823527, 54.53175, 29.75476, 44.48977272727272, 19.172461538461537, 38.5917, 60.12562499999999, 16.779, 17.546290322580646, 49.04630769230769, 10.564555555555556, 23.77025, 36.41982388663967, 44.1847], "type": "bar", "uid": "72abdaf8-6264-47f6-b123-603878b216f7"}, {"name": "09/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHL", "CHN", "CZE", "DEU", "DNK", "ESP", "EST", "FRA", "GBR", "GRC", "HUN", "IND", "IRL", "ISR", "ITA", "JPN", "KAZ", "KHM", "MEX", "MYS", "NLD", "NOR", "PHL", "ROU", "RUS", "SAU", "SWE", "THA", "TUR", "TWN", "UKR", "USA", "VNM", "ZAF"], "y": [42.20172727272727, 48.6591, 38.9912, 38.628625, 36.99984615384615, 38.77813333333333, 32.4233, 30.596999999999998, 23.970000000000002, 26.693863636363634, 30.761499999999998, 21.77275, 37.09042105263158, 51.57988888888888, 24.609199999999998, 41.9916875, 34.66273188405797, 47.5405, 41.548, 37.52023333333333, 31.3208, 64.3195, 42.56894444444445, 72.3597, 12.118166666666667, 20.507666666666665, 12.8639, 27.212131578947368, 34.95625, 49.47653846153846, 11.885125, 37.28666666666667, 10.804659090909091, 25.727800000000002, 48.5891875, 22.241930232558136, 14.76552, 44.91348484848485, 11.185999999999998, 31.777386321626615, 35.42233333333333, 58.02999999999999], "type": "bar", "uid": "ed675487-093f-45b6-8ce9-ab04baaf74b3"}, {"name": "10/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHL", "CHN", "CRI", "CZE", "DEU", "DNK", "DOM", "EGY", "ESP", "FRA", "GBR", "HUN", "IDN", "IND", "IRL", "ISR", "ITA", "JPN", "KAZ", "LBN", "MEX", "MYS", "NLD", "NOR", "NZL", "PHL", "POL", "PRT", "ROU", "RUS", "SVK", "SWE", "THA", "TUR", "TWN", "UKR", "USA", "VNM", "ZAF"], "y": [43.6254, 33.127769230769225, 32.9987, 68.04816666666666, 30.761499999999998, 43.84082926829268, 24.998365853658534, 34.441105263157894, 66.458, 20.97375, 30.761499999999998, 41.81433333333334, 27.0046875, 44.74399999999999, 30.062374999999996, 32.759, 45.25499999999999, 33.59902777777778, 35.37738834951456, 37.75275, 34.418461538461536, 23.64934782608696, 47.5405, 45.54299999999999, 37.86030769230769, 40.93059090909091, 21.573, 46.342, 32.691399999999994, 24.650629629629627, 52.82277777777777, 53.932500000000005, 26.100666666666662, 21.8127, 25.422727272727272, 35.156, 16.48966666666666, 20.377072916666666, 18.81281818181818, 27.473352941176472, 15.0212, 21.492709677419352, 32.03263636363636, 19.78012195121951, 30.535171370967742, 14.293222222222223, 35.92426923076923], "type": "bar", "uid": "ed58d38a-930f-48d1-b780-e94bb04fc4e9"}, {"name": "11/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHL", "CHN", "COL", "CZE", "DEU", "ECU", "ESP", "FRA", "GBR", "HUN", "IND", "IRL", "ISR", "ITA", "JPN", "KHM", "MEX", "MYS", "NLD", "NOR", "NZL", "PHL", "POL", "ROU", "RUS", "SVK", "SWE", "THA", "TUR", "TWN", "UKR", "USA", "VNM", "ZAF"], "y": [34.35699999999999, 35.202999999999996, 30.761499999999998, 30.761499999999998, 48.239625000000004, 38.52955555555556, 23.092787878787878, 29.458333333333332, 25.315684210526314, 28.764, 25.567999999999998, 19.176, 21.156130434782607, 29.563, 35.2359, 29.254974358974355, 38.370937500000004, 25.168499999999998, 22.858347826086952, 35.42233333333333, 38.72076923076923, 22.659538461538464, 39.7103, 7.191, 25.813846153846153, 23.897363636363632, 25.662000000000003, 33.558, 34.49016666666667, 6.525166666666666, 28.897166666666664, 36.3545, 21.39544444444444, 11.985000000000001, 36.3545, 13.361055555555556, 12.906923076923077, 8.3895, 17.367736842105263, 28.409953974895394, 16.779, 36.7040625], "type": "bar", "uid": "3b783bdf-10c9-4c74-ba52-210824e8298d"}, {"name": "12/01/2018", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHN", "CZE", "DEU", "DNK", "ESP", "FRA", "GBR", "HUN", "IND", "IRL", "ISR", "ITA", "KHM", "MEX", "MYS", "NLD", "NOR", "PER", "PHL", "PRT", "RUS", "SAU", "SWE", "THA", "TUR", "UKR", "USA", "VNM", "ZAF"], "y": [22.371999999999996, 32.359500000000004, 25.939948275862072, 43.345749999999995, 26.817, 24.84706, 20.11658333333333, 39.2098, 11.186000000000002, 20.586222222222222, 22.75564516129032, 34.418461538461536, 30.295416666666664, 31.051758620689654, 26.78326288659794, 28.764, 27.635999999999996, 33.558, 46.342, 37.053625, 10.677545454545452, 24.674999999999997, 20.6941, 13.583, 40.11379166666667, 52.20133333333333, 20.04158333333333, 10.067400000000001, 13.982499999999998, 44.744, 30.596999999999998, 30.202199999999998, 22.37511111111111, 11.807444444444444, 25.43560499265786, 15.032499999999997, 22.993444444444442], "type": "bar", "uid": "7a62c6ee-59f0-4af6-8f4a-d6049326d0f8"}, {"name": "01/01/2019", "x": ["ARE", "ARG", "AUS", "AUT", "BEL", "BRA", "CAN", "CHE", "CHL", "CHN", "CZE", "DEU", "DNK", "DOM", "ESP", "FRA", "GBR", "HUN", "IND", "ITA", "JPN", "KHM", "KOR", "MEX", "MYS", "NLD", "NOR", "NZL", "POL", "PRT", "ROU", "RUS", "SAU", "SVK", "SWE", "THA", "TUR", "UKR", "USA", "ZAF"], "y": [13.671777777777779, 32.759, 28.562310679611652, 22.371999999999996, 17.178499999999996, 22.371999999999996, 17.418246913580244, 23.210949999999997, 32.625833333333325, 52.20133333333333, 21.51153846153846, 29.402527777777777, 41.13316666666666, 16.779, 11.186, 24.32955, 22.845593749999995, 18.954055555555556, 27.965999999999998, 31.460625, 37.473099999999995, 18.64333333333333, 21.573, 26.7665, 22.372, 29.939, 39.633125, 23.897363636363636, 17.338299999999997, 27.032833333333333, 19.176, 20.721606557377047, 32.759, 19.974999999999998, 31.3208, 21.863545454545452, 26.244076923076925, 19.575499999999998, 22.5791822971549, 35.42233333333333], "type": "bar", "uid": "3fc23182-510d-46e7-b753-97a9663de4bc"}, {"name": "02/01/2019", "x": ["ARE", "AUS", "BEL", "BRA", "CAN", "CHE", "CHL", "CRI", "CZE", "DEU", "DNK", "ESP", "FRA", "GBR", "HUN", "IND", "IRL", "ITA", "JPN", "KHM", "MEX", "MYS", "NOR", "NZL", "POL", "PRT", "ROU", "RUS", "SAU", "SVK", "SWE", "THA", "TUR", "USA"], "y": [16.779, 20.109662921348313, 11.186, 26.992304347826085, 14.88306779661017, 32.669636363636364, 29.563, 18.643333333333334, 21.439833333333333, 28.259368421052628, 25.168499999999998, 29.829333333333334, 22.757724137931035, 21.18290322580645, 13.050333333333331, 18.930153846153846, 31.959999999999997, 18.85048148148148, 25.415249999999997, 20.507666666666665, 15.31790909090909, 15.979999999999999, 26.846399999999996, 19.45391304347826, 22.372, 19.016199999999998, 16.779, 14.15728125, 31.69366666666666, 13.050333333333331, 31.8801, 11.186, 19.575499999999998, 18.66920748829953], "type": "bar", "uid": "ace6c78d-14ba-4a31-bd78-a2d7432b4f9d"}, {"name": "03/01/2019", "x": ["ARE", "AUS", "AUT", "BEL", "BGR", "BRA", "CAN", "CHE", "CZE", "DEU", "DNK", "FRA", "GBR", "HUN", "IND", "IRL", "ISR", "ITA", "JPN", "MEX", "NLD", "NOR", "NZL", "PHL", "RUS", "SWE", "THA", "USA", "ZAF"], "y": [13.423200000000001, 13.312915492957746, 16.779, 9.321666666666667, 12.118166666666667, 15.287533333333334, 15.713666666666665, 16.779, 13.671777777777779, 13.050333333333333, 13.050333333333333, 17.897599999999997, 13.66391139240506, 15.84683333333333, 16.779, 13.982499999999998, 15.846833333333334, 18.18075, 13.782750000000002, 12.20290909090909, 13.283375, 20.220846153846153, 19.264777777777777, 15.846833333333334, 13.702849999999998, 19.575499999999998, 13.9825, 14.537788461538462, 21.3948], "type": "bar", "uid": "c9736bb0-a37c-49ed-a0b2-0a1de758e476"}, {"name": "04/01/2019", "x": ["ARE", "AUS", "BRA", "CAN", "FRA", "GBR", "IND", "IRL", "JPN", "RUS", "TUR", "USA"], "y": [8.643727272727274, 7.95926923076923, 9.321666666666667, 8.078777777777779, 8.855583333333332, 7.643766666666667, 6.214444444444443, 10.253833333333333, 9.321666666666667, 7.191, 5.592999999999999, 8.53426724137931], "type": "bar", "uid": "d7967826-6135-43e9-bd94-10a2638030f0"}], {}, {"showLink": false, "linkText": "Export to plot.ly", "plotlyServerURL": "https://plot.ly"})});</script><script type="text/javascript">window.addEventListener("resize", function(){window._Plotly.Plots.resize(document.getElementById("fcfbc10e-115d-428f-a220-3096f7729f64"));});</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>диаграмма показывает LTV по месяцам (для стран)</p>
 
 </div>
 </div>
