@@ -16,8 +16,8 @@ const asyncReadFile = promisify(fs.readFile);
 const reportTypes = ['SUBSCRIBER', 'SALES', 'SUBSCRIPTION_EVENT', 'SUBSCRIPTION'];
 
 const download = async type => {
-  const projectId = 'impressive-tome-227410';
-  const bigquery = new BigQuery({ projectId, });
+  const projectId = 'dashappsanalytics';
+  const bigquery = new BigQuery({ projectId, keyFilename: './DashAppsAnalytics-b33133ae8b87.json'  });
   const datasetId = 'app_store';
 
   let date = new Date();
@@ -66,7 +66,8 @@ const download = async type => {
       .pipe(json2csv)
       .pipe(file);
     await finishPromise;
-  
+    
+    console.log("Saving to bigquery");
     const [job] = await bigquery
       .dataset(datasetId)
       .table(type)
@@ -80,14 +81,20 @@ const download = async type => {
   }
 };
 
+
 (async () => {
   try {
+    console.log('Loading rates!');
     await loadRates();
+    console.log('Loading report 1!');
     await download(reportTypes[0]);
+    console.log('Loading report 2!');
     await download(reportTypes[1]);
+    console.log('Loading report 3!');
     await download(reportTypes[2]);
+    console.log('Loading report 4!');
     await download(reportTypes[3]);
-    console.log('that\'s all!');
+    console.log('that\'s it folks!');
   } catch(err) {
     console.log(err);
   }
