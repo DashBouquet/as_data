@@ -4,4 +4,6 @@
 
 ### [Ubeats dashboard](https://dashbouquet.github.io/as_data/ubeats/)
 
-### [Funnels](https://dashbouquet.github.io/as_data/funnels/)
+### [Funnels](https://dashbouquet.github.io/as_data/datastudio/funnels/)
+
+### [Events](https://dashbouquet.github.io/as_data/datastudio/events/)
